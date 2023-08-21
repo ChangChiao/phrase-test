@@ -1,8 +1,26 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
 import HelloWorld from "./components/HelloWorld.vue";
+const { t, locale } = useI18n({ useScope: "global" });
+
+const langList = [
+  { key: "en", name: "English" },
+  { key: "zh-TW", name: "繁體中文" },
+  { key: "ja", name: "日本語" },
+];
+
+const handleChange = (event: Event) => {
+  const eventTarget = event.target as HTMLSelectElement;
+  locale.value = eventTarget.value;
+};
 </script>
 
 <template>
+  <select @change="handleChange">
+    <option v-for="item in langList" :value="item.key">
+      {{ item.name }}
+    </option>
+  </select>
   <div>
     {{ $t("hello") }}
     <span>{{ $t("sorry") }}</span>
