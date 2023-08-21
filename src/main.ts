@@ -4,15 +4,17 @@ import App from "./App.vue";
 import { createI18n } from "vue-i18n";
 import en from "./assets/i18n/en.json";
 import zh from "./assets/i18n/zh-tw.json";
+import ja from "./assets/i18n/ja.json";
 
 const i18n = createI18n({
   legacy: false,
-  locale: "zh-TW",
-  fallbackLocale: "zh-TW",
+  locale: "en-US",
+  fallbackLocale: "en-US",
   globalInjection: true,
   messages: {
     "zh-TW": zh,
     "en-US": en,
+    ja: ja,
   },
 });
 
